@@ -5,47 +5,65 @@
     things.
   </p>
   <p>I love coding, music, and biking and I enjoy playing with skill toys.</p>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" v-for="(img, index) in carouselImages" :key="index">
-        <img :src="`/${img}`" alt="Carousel Image" />
+  <div class="carousel-container">
+    <div class="carousel-track" :style="trackStyle">
+      <div v-for="(image, index) in slides" :key="index" class="carousel-slide">
+        <img :src="image" class="carousel-image" />
       </div>
     </div>
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <div class="swiper-scrollbar"></div>
+    <button @click="prevSlide" class="carousel-btn prev-btn">
+      &lt;
+    </button>
+    <button @click="nextSlide" class="carousel-btn next-btn">
+      &gt;
+    </button>
+    <div class="pagination">
+      <span v-for="(slide, index) in slides" :key="index" @click="goToSlide(index)"
+        :class="{ 'active': index === currentSlideIndex }" class="dot"></span>
+    </div>
   </div>
-
 </template>
 
 <script setup>
-import Swiper from 'swiper';
-import 'swiper/css';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 
-const carouselImages = [
-  "image-c-1.jpg",
-  "image-c-2.jpg",
-  "image-c-3.jpg",
-]
+const slides = ref([
+  '/image-c-1.jpg',
+  '/image-c-2.jpg',
+  '/image-c-3.jpg',
+]);
 
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
+const currentSlideIndex = ref(0);
+let intervalId = null;
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+const trackStyle = computed(() => {
+  return {
+    transform: `translateX(-${currentSlideIndex.value * 100}%)`
+  };
+});
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+const nextSlide = () => {
+  currentSlideIndex.value = (currentSlideIndex.value + 1) % slides.value.length;
+};
+
+const prevSlide = () => {
+  currentSlideIndex.value = (currentSlideIndex.value - 1 + slides.value.length) % slides.value.length;
+};
+
+const goToSlide = (index) => {
+  currentSlideIndex.value = index;
+};
+
+const startAutoSlide = () => {
+  intervalId = setInterval(nextSlide, 5000);
+};
+
+onMounted(() => {
+  startAutoSlide();
+});
+
+onUnmounted(() => {
+  clearInterval(intervalId);
 });
 </script>
 
@@ -61,9 +79,77 @@ p {
   text-align: center;
 }
 
-.swiper img {
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
 
-  width: 40%;
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+}
+
+.carousel-image {
+  width: 100%;
   height: auto;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.812);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  /* New styles for circular buttons */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #fff;
 }
 </style>
