@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <img src="/home.jpg" alt="Ricardo" class="hero-image" />
+    <img src="/public/images/home.jpg" alt="Ricardo" class="hero-image" />
     <div class="text-content">
       <h1>Hi! I'm Ricardo!</h1>
       <p>

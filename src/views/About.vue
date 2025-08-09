@@ -1,8 +1,8 @@
 <template>
   <h1>About</h1>
   <p>I was born in Dubai in 2012. Now, I live in Ontario, Canada with my family. I am a
-    <i>mini</i> software developer and especially good at front end development. I also play music and like learning new
-    things.
+    <i>mini</i> software developer and especially good at front end development.
+    I also play music and like learning new things.
   </p>
   <p>I love coding, music, and biking and I enjoy playing with skill toys.</p>
   <div class="carousel-container">
@@ -28,9 +28,10 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
 const slides = ref([
-  '/image-c-1.jpg',
-  '/image-c-2.jpg',
-  '/image-c-3.jpg',
+  '/images/carousel-image-1.jpg',
+  '/images/carousel-image-2.jpg',
+  '/images/carousel-image-3.jpg',
+  '/images/carousel-image-4.jpg',
 ]);
 
 const currentSlideIndex = ref(0);
@@ -74,7 +75,7 @@ h1 {
 
 p {
   font-size: 1.2rem;
-  max-width: 80%;
+  max-width: 50%;
   margin: 1rem auto;
   text-align: center;
 }
@@ -82,22 +83,27 @@ p {
 .carousel-container {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
   overflow: hidden;
-  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+
+
 }
 
 .carousel-slide {
   flex: 0 0 100%;
+
+
 }
 
 .carousel-image {
+
   width: 100%;
   height: auto;
   display: block;
