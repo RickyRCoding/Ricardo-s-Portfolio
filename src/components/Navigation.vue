@@ -7,17 +7,8 @@
       <router-link :to="{ name: 'skills' }" class="router-link">Skills</router-link>
       <router-link :to="{ name: 'projects' }" class="router-link">Projects</router-link>
       <div class="split contacts">
-        <a href="#" aria-label="Contact Link 1">
-          <p>Image1</p>
-        </a>
-        <a href="#" aria-label="Contact Link 2">
-          <p>Image2</p>
-        </a>
-        <a href="#" aria-label="Contact Link 3">
-          <p>Image3</p>
-        </a>
-        <a href="#" aria-label="Contact Link 4">
-          <p>Image4</p>
+        <a href="https://github.com/RickyRCoding" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="/images/github.png" alt="GitHub" style="width:40px; height:40px;">
         </a>
       </div>
     </div>
@@ -34,17 +25,8 @@
       <router-link :to="{ name: 'skills' }" class="router-link" @click="closeMobileMenu">Skills</router-link>
       <router-link :to="{ name: 'projects' }" class="router-link" @click="closeMobileMenu">Projects</router-link>
       <div class="contacts-mobile">
-        <a href="#" aria-label="Contact Link 1">
-          <p>Image1</p>
-        </a>
-        <a href="#" aria-label="Contact Link 2">
-          <p>Image2</p>
-        </a>
-        <a href="#" aria-label="Contact Link 3">
-          <p>Image3</p>
-        </a>
-        <a href="#" aria-label="Contact Link 4">
-          <p>Image4</p>
+        <a href="https://github.com/RickyRCoding" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="/images/github.png" alt="GitHub" style="width:24px; height:24px;">
         </a>
       </div>
     </div>
@@ -139,6 +121,19 @@ nav .split {
   gap: 1rem;
   color: black;
   margin-left: 2rem;
+}
+
+/* Style the contact links to vertically align the image */
+.contacts a {
+  display: flex;
+  align-items: center;
+  /* Vertically center content */
+}
+
+.contacts-mobile a {
+  display: flex;
+  align-items: center;
+  /* Vertically center content */
 }
 
 .hamburger,

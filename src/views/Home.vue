@@ -1,6 +1,6 @@
 <template>
   <div class="home-container">
-    <img src="/public/images/home.jpg" alt="Ricardo" class="hero-image" />
+    <img src="/images/home.jpg" alt="Ricardo" class="hero-image" />
     <div class="text-content">
       <h1>Hi! I'm Ricardo!</h1>
       <p>
@@ -69,7 +69,6 @@ p {
   .home-container {
     flex-direction: column;
     text-align: center;
-    margin-bottom: 1rem;
   }
 
   .hero-image {
