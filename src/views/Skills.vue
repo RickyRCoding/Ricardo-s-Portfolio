@@ -21,7 +21,7 @@
 
     <div class="section reverse">
       <div class="image-placeholder-right">
-        <img src="" alt="Music">
+        <img src="/images/skills-music.jpg" alt="Music">
       </div>
       <div class="text-content">
         <h2>Music</h2>
@@ -37,14 +37,13 @@
 
     <div class="section">
       <div class="image-placeholder-left">
-        <img src="/images/skills-sports.jpg" alt="Sports">
+        <img src="/images/skills-maths.jpg" alt="Maths">
       </div>
       <div class="text-content">
-        <h2>Sports</h2>
-        <p>My journey with sports keeps me active and focused. I've developed my swimming skills through the
-          Lifesaving Society's Swim for Life Program, where I've reached Level 8. But my favorite sport is
-          biking. I love to spend time at the park perfecting tricks and building my strength. For a different kind
-          of challenge, I enjoy racquet sports like badminton.</p>
+        <h2>Maths</h2>
+        <p>Maths has always been an important thing to keep up with. I've gone beyond what I learn in school, as my dad
+          has taught me more advanced topics like algebra, geometry, and a little trigonometry. I find these subjects
+          fascinating and they help me with a lot of my other interests, like coding and problem-solving.</p>
       </div>
     </div>
 
@@ -52,15 +51,15 @@
 
     <div class="section reverse">
       <div class="image-placeholder-right">
-        <img src="/images/skills-skill-toys.jpg" alt="Skill Toys">
+        <img class="half-left" src="/images/skills-skill-toys.jpg" alt="Skill Toys">
+        <img class="half-right" src="/images/skills-sports.jpg" alt="Sports">
       </div>
       <div class="text-content">
-        <h2>Skill Toys</h2>
-        <p>My fascination with skill toys started with the Rubik's Cube. Once I got the hang of it, I explored a
-          variety of other challenges, such as fingerboarding, fingerspinning, and handboarding. My biggest
-          passion, however, grew from watching videos of incredible yo-yo tricks. I dedicated a year to yo-yoing,
-          becoming quite skilled before moving on to slinky manipulation. I love the creative freedom of slinkying
-          and can now perform complex tricks, including flips and twists.</p>
+        <h2>Other</h2>
+        <p>I am a fast and dedicated learner, which is clear in how I've mastered a variety of skills, from sports to
+          skill toys. I've advanced my swimming abilities, perfected biking tricks, and even taught myself complex yo-yo
+          and slinky manipulation tricks. My passion for taking on new challenges and my commitment to practice allows
+          me to quickly develop in any new activity I pursue.</p>
       </div>
     </div>
   </div>
@@ -106,6 +105,8 @@ h1 {
   height: 400px;
   border-radius: 10px;
   overflow: hidden;
+  display: flex;
+  gap: 10px;
 }
 
 .image-placeholder-left img,
@@ -113,7 +114,14 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 10px;
+}
+
+.image-placeholder-right .half-left,
+.image-placeholder-right .half-right {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
 }
 

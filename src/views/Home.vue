@@ -6,7 +6,7 @@
       <p>
         Hello! I'm Ricardo, and I'm passionate about building, creating and learning. I
         enjoy diving into the world of coding and bringing websites to life.
-        When I'm not on the computer, you'll find ame learning new things, like
+        When I'm not on the computer, you'll find me learning new things, like
         playing the piano and exploring new songs. I also love skill toys,
         practicing tricks with my yo-yo and creating shapes with a slinky. To
         add, I like biking and scootering at the park. I'm always eager to
@@ -63,5 +63,21 @@ p {
   line-height: 1.5;
   color: #555;
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .hero-image {
+    width: 80%;
+  }
+
+  .text-content {
+    width: 100%;
+  }
 }
 </style>
